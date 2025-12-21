@@ -46,9 +46,9 @@ export function AppSidebar({
   return (
     <aside
       className={cn(
-        "fixed left-0 top-0 z-40 h-screen flex flex-col transition-sidebar",
+        "fixed left-0 top-0 z-40 h-screen flex flex-col transition-all duration-300 ease-in-out",
         "glass border-r border-glass-border",
-        isCollapsed ? "w-0 -translate-x-full" : "w-[280px]"
+        isCollapsed ? "w-0 opacity-0 pointer-events-none -translate-x-full" : "w-[280px] opacity-100"
       )}
     >
       {/* Header */}
