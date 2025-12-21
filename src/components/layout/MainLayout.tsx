@@ -15,7 +15,7 @@ export function MainLayout({ children }: MainLayoutProps) {
   const navigate = useNavigate();
   const { user, logout, isAuthenticated } = useAuth();
   const { theme, toggleTheme } = useTheme();
-  const { isCollapsed, currentView, toggleCollapsed, switchView } = useSidebar();
+  const { isCollapsed, currentView, toggleCollapsed } = useSidebar();
   const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   if (!isAuthenticated) {
@@ -23,7 +23,6 @@ export function MainLayout({ children }: MainLayoutProps) {
   }
 
   const handleSwitchView = (view: 'console' | 'docs') => {
-    switchView(view);
     if (view === 'docs') {
       navigate('/docs/intro');
     } else {

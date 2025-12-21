@@ -1,22 +1,22 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
 import type { AppView } from '@/types';
 
 export function useSidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [currentView, setCurrentView] = useState<AppView>('console');
+  const location = useLocation();
+
+  const currentView = useMemo<AppView>(() => {
+    return location.pathname.startsWith('/docs') ? 'docs' : 'console';
+  }, [location.pathname]);
 
   const toggleCollapsed = useCallback(() => {
     setIsCollapsed(prev => !prev);
-  }, []);
-
-  const switchView = useCallback((view: AppView) => {
-    setCurrentView(view);
   }, []);
 
   return {
     isCollapsed,
     currentView,
     toggleCollapsed,
-    switchView,
   };
 }
