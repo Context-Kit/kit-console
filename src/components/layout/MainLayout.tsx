@@ -49,7 +49,7 @@ export function MainLayout({ children }: MainLayoutProps) {
 
       <div
         className={cn(
-          "min-h-screen transition-sidebar",
+          "min-h-screen transition-[margin-left] duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]",
           isCollapsed ? "ml-0" : "ml-[280px]"
         )}
       >
